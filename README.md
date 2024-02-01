@@ -51,7 +51,7 @@
 
 ## Data Structures(optional)
 
-## Spring
+## Spring Introduction
 
 - [Installation](./assignments/spring/intro/notes/Installation/README.md)
 - [NewSpringProject](./assignments/spring/intro/notes/NewSpringProject/README.md)
