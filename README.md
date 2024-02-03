@@ -4,26 +4,27 @@
 ## Fundamentals
 
 - [HelloWorld](./assignments/fundamentals/notes/HelloWorld/README.md)
-- [FirstJavaProgram](./assignments/fundamentals/practice/FirstJavaProgram/README.md)
+- [__FirstJavaProgram__](./assignments/fundamentals/practice/FirstJavaProgram/README.md)
 - [Variables](./assignments/fundamentals/notes/Variables/README.md)
 - [ConditionalsOperators](./assignments/fundamentals/notes/ConditionalsOperators/README.md)
 - [SwitchTernary](./assignments/fundamentals/notes/SwitchTernary/README.md)
-- [CafeJava](./assignments/fundamentals/pracitce/CafeJava/README.md)
+- [__CafeJava__](./assignments/fundamentals/practice/CafeJava/README.md)
 - [Strings](./assignments/fundamentals/notes/Strings/README.md)
 - [Methods](./assignments/fundamentals/notes/Methods/README.md)
 - [Modularization](./assignments/fundamentals/notes/Modularization/README.md)
-- [AlfredBot](./assignments/fundamentals/practice/AlfredBot/README.md)
+- [__AlfredBot__](./assignments/fundamentals/practice/AlfredBot/README.md)
 - [TypeCasting](./assignments/fundamentals/notes/TypeCasting/README.md)
 - [FixedArrays](./assignments/fundamentals/notes/FixedArrays/README.md)
 - [ArrayLists](./assignments/fundamentals/notes/ArrayLists/README.md)
 - [Loops](./assignments/fundamentals/notes/Loops/README.md)
-- [CafeBusinessLogic](./assignments/fundamentals/core/CafeBusinessLogic/README.md)
-- [Puzzling](./assignments/fundamentals/practice/Puzzling/README.md)
+- [__CafeBusinessLogic__](./assignments/fundamentals/core/CafeBusinessLogic/README.md)
+- [__Puzzling__](./assignments/fundamentals/practice/Puzzling/README.md)
 - [Maps](./assignments/fundamentals/notes/Maps/README.md)
-- [MapHashmatique](./assignments/fundamentals/practce/MapHashmatique/README.md)
+- [__MapHashmatique__](./assignments/fundamentals/practce/MapHashmatique/README.md)
 - [Exceptions](./assignments/fundamentals/notes/Exceptions/README.md)
 
 ## OOP
+
 - [ObjectsClasses](./assignments/oop/notes/ObjectsClasses/README.md)
 - [MemberVariables](./assignments/oop/notes/MemberVariables/README.md)
 - [OrdersItems](./assignments/oop/practice/OrdersItems/README.md)
