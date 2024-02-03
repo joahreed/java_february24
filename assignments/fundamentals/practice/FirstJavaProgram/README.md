@@ -9,7 +9,7 @@
 
 ## steps
 
-- [ ] Create a new [source file](./Main.java) inside your Java Fundamentals assignments folder.
+- [ ] Create a new [source file](./start/Main.java) inside your Java Fundamentals assignments folder.
 
 - [ ] In the main method, implement the code to print your name, age, and hometown on different lines.
 
