@@ -3,6 +3,8 @@
 
 ## Fundamentals
 
+- [Why Java?](./assignments/fundamentals/notes/WhyJava/README.md)
+- [How does Java work?](./assignments/fundamentals/notes/HowJava/README.md)
 - [HelloWorld](./assignments/fundamentals/notes/HelloWorld/README.md)
 - [__FirstJavaProgram__](./assignments/fundamentals/practice/FirstJavaProgram/README.md)
 - [Variables](./assignments/fundamentals/notes/Variables/README.md)
