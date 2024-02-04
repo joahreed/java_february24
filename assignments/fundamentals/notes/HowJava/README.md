@@ -15,3 +15,11 @@
 - __JDK__
 - __JVM__
 
+
+
+## Questions:
+
+- What is a __compiled__ language and how is it different from an __interpreted__ language?
+- What does __JDK__ stand for? What is it?
+- What does __JVM__ stand for? What does it allow us to do?
+- 

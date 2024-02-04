@@ -11,3 +11,11 @@
 
 
 >Generally, a strongly typed language has stricter typing rules at compile time, which implies that errors and exceptions are more likely to happen during compilation.
+
+
+
+## Questions:
+
+- What is the difference between __strong__ and __weak__ typing?
+- What is the difference between __static__ and __dynamic__ typing?
+- 

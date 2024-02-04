@@ -37,3 +37,8 @@ name = "Monty"
 
 - anything that is not a primitive type
 - start with a capital letter
+
+## Questions:
+
+- What are the eight primitive types in Java?
+- What is the difference between a __primitive type__ and a __reference type__

@@ -11,3 +11,11 @@
 - `main` method
 - `import`
 - dependency injection
+
+
+## Questions:
+
+- What is __modularization__?
+- Explain the `main` method in Java?
+- What does the `import` statement do?
+- What is __dependency injection__?

@@ -2,5 +2,9 @@
 
 ## Learning Objective:
 
-- Learn control flow in Java
+- Learn __control flow__ in Java
+
+## Questions:
+
+- What is __control flow__?
 
