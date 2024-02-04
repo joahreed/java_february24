@@ -1,4 +1,4 @@
-package assignments.fundamentals.notes.HelloWorld.start.src.main.java.tyler;
+package tyler;
 
 public class Main {
     public static void main(String[] args) {
