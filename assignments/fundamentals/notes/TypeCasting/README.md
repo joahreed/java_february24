@@ -5,3 +5,8 @@
 - Introduction to __casting__ (how to change types in Java)
 - Learn when to use __primitive types__ versus __object types__
 
+## Terms:
+
+- __casting__
+- __primitive types__ 
+- __object types__
