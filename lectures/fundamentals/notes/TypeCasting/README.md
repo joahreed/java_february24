@@ -10,3 +10,9 @@
 - __casting__
 - __primitive types__ 
 - __object types__
+
+## Questions:
+
+- What is type __casting__?
+- What is the difference between __primitive types__ and __object types__
+

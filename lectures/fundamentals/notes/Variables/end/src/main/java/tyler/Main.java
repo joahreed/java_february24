@@ -1,4 +1,4 @@
-package lectures.fundamentals.notes.Variables.end.src.main.java.tyler;
+package end.src.main.java.tyler;
 
 public class Main {
     public static void main(String[] args) {
