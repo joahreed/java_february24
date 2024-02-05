@@ -47,7 +47,9 @@ class ListNode {
      * - Space: O(?).
      * @returns {boolean}
      */
-    isEmpty() {}
+    isEmpty() {
+      return this.head === null;
+    }
   
     /**
      * Creates a new node with the given data and inserts it at the back of
@@ -57,7 +59,32 @@ class ListNode {
      * @param {any} data The data to be added to the new node.
      * @returns {SinglyLinkedList} This list.
      */
-    insertAtBack(data) {}
+    insertAtBack(data) {
+
+      // create a new node to add to list
+      let newNode = new ListNode(data);
+
+      // if empty
+      if(this.isEmpty()){
+        this.head = newNode;
+        return this;
+      }
+
+
+      // if not empty
+      let runner = this.head
+      while(runner.next !== null){
+        runner = runner.next;
+      }
+      console.log(runner)
+
+      runner.next = newNode;
+      return this;
+
+
+
+
+    }
   
     /**
      * Creates a new node with the given data and inserts it at the back of
@@ -132,3 +159,11 @@ class ListNode {
   
   // Print your list like so:
   // console.log(firstThreeList.toArr());
+
+
+  let mySll = new SinglyLinkedList()
+
+  let node1 = new ListNode(1)
+  let node2 = new ListNode(2)
+  let node3 = new ListNode(3)
+
