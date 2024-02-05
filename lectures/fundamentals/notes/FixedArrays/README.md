@@ -4,3 +4,7 @@
 
 - __Arrays__ in java
 - Introduction to __ArrayList__
+
+## Questions:
+
+- What is the difference between an __array__ and an `ArrayList` in Java?
