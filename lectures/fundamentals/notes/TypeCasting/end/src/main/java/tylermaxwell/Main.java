@@ -16,15 +16,18 @@ public class Main {
         byte by1 = 127;
         char ch2 = 't';
         short sh2 = 32767;
-        int in4 = 2147483647;
+        int in4 = 2_147_483_647;
         float fl4 = 3.4028235E38F;
         long l8 = 9223372036854775807L;
         double d8 = 1.7976931348623157E308;
+        l8 = 2354L;
 
+        // implicit casting
         in4 = by1;
 
         System.out.println(in4);
         
+        //explicit casting
         in4 = (int)l8;
         
         System.out.println(in4);

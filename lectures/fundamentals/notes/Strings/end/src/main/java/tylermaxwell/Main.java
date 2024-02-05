@@ -21,7 +21,10 @@ public class Main {
         /**
          * format() static method
          */
-        String formatString = String.format("My name is %s and I like to %s.", "Simon", "draw drawings");
+
+        String str1 = "Simon";
+        String str2 = "draw drawings";
+        String formatString = String.format("My name is %s and I like to %s.", str1, str1);
         System.out.println(formatString);
 
         /**
