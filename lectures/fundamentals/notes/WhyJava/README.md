@@ -12,6 +12,12 @@
 
 >Generally, a strongly typed language has stricter typing rules at compile time, which implies that errors and exceptions are more likely to happen during compilation.
 
+```java
+
+int number = 42;
+
+```
+
 
 
 ## Questions:
