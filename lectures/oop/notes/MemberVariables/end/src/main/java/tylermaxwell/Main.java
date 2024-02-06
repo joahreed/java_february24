@@ -4,13 +4,16 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Student student = new Student();
-        student.name = "Josh";
-        student.assignments_completed[0] = "FirstJavaProgram";
+        Student student1 = new Student();
+        student1.name = "JoshL";
+        student1.assignments_completed[0] = "FirstJavaProgram";
+        student1.assignments_completed[1] = "Cafe Java";
 
-        System.out.println(student.name);
-        System.out.println(student.assignments_completed);
-        System.out.println(Arrays.toString(student.assignments_completed));
-        System.out.println(student.assignments_completed.length);
+        Student student2 = new Student();
+
+        // System.out.println(student.name);
+        // System.out.println(student.assignments_completed);
+        System.out.println(Arrays.toString(student1.assignments_completed));
+        // System.out.println(student.assignments_completed.length);
     }
 }

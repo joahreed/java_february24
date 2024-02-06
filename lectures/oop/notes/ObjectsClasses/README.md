@@ -13,3 +13,5 @@
 ## Questions:
 
 - What is the relationship between __classes__ and __objects__?
+
+A class is to an object, what a factory is to a car.
