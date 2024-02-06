@@ -21,3 +21,11 @@
 - [ ] Implement the `answeringBeforeAlexis` method and test it.
 - [ ] Ninja Bonus 1: Overload the `guestGreeting` method.
 - [ ] Ninja Bonus 2: Implement your own method for the Alfred bot using any of the built-in String methods you've learned.
+
+## String interpolation
+
+```java
+String str = "Hello"
+int myint = 42;
+double mydouble = 3.14;
+String.format("%s, %d, %f", str, myint, mydouble);

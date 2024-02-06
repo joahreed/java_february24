@@ -76,7 +76,7 @@ class ListNode {
       while(runner.next !== null){
         runner = runner.next;
       }
-      console.log(runner)
+      // console.log(runner)
 
       runner.next = newNode;
       return this;
@@ -135,7 +135,18 @@ class ListNode {
        * @param {any} data The data for the new node.
        * @returns {SinglyLinkedList} This list.
        */
-      insertAtFront(data) {}
+      insertAtFront(data) {
+        // create a new node
+        let newNode = new ListNode(data)
+
+        // set new node's next value to current head
+        newNode.next = this.head;
+        // set the head of the SLL to the new node
+        this.head = newNode;
+        // return the instance of the SLL
+        return this;
+
+      }
 
       /**
        * Removes the first node of this list.
@@ -143,7 +154,13 @@ class ListNode {
        * - Space: (?).
        * @returns {any} The data from the removed node.
        */
-      removeHead() {}
+      removeHead() {
+        let oldhead = this.head;
+        this.head = this.head.next
+        oldhead.next = null
+        console.log(this)
+        return oldhead.data
+      }
 
 
   }
@@ -155,28 +172,28 @@ class ListNode {
   */
   const emptyList = new SinglyLinkedList();
   
-  // const singleNodeList = new SinglyLinkedList().insertAtBackMany([1]);
-  // const biNodeList = new SinglyLinkedList().insertAtBackMany([1, 2]);
-  // const firstThreeList = new SinglyLinkedList().insertAtBackMany([1, 2, 3]);
-  // const secondThreeList = new SinglyLinkedList().insertAtBackMany([4, 5, 6]);
-  // const unorderedList = new SinglyLinkedList().insertAtBackMany([
-  //   -5, -10, 4, -3, 6, 1, -7, -2,
-  // ]);
+   const singleNodeList = new SinglyLinkedList().insertAtBackMany([1]);
+   const biNodeList = new SinglyLinkedList().insertAtBackMany([1, 2]);
+   const firstThreeList = new SinglyLinkedList().insertAtBackMany([1, 2, 3]);
+   const secondThreeList = new SinglyLinkedList().insertAtBackMany([4, 5, 6]);
+   const unorderedList = new SinglyLinkedList().insertAtBackMany([
+     -5, -10, 4, -3, 6, 1, -7, -2,
+   ]);
   
   /* node 4 connects to node 1, back to head */
-  // const perfectLoopList = new SinglyLinkedList().insertAtBackMany([1, 2, 3, 4]);
-  // perfectLoopList.head.next.next.next = perfectLoopList.head;
+   const perfectLoopList = new SinglyLinkedList().insertAtBackMany([1, 2, 3, 4]);
+   perfectLoopList.head.next.next.next = perfectLoopList.head;
   
   /* node 4 connects to node 2 */
-  // const loopList = new SinglyLinkedList().insertAtBackMany([1, 2, 3, 4]);
-  // loopList.head.next.next.next = loopList.head.next;
+   const loopList = new SinglyLinkedList().insertAtBackMany([1, 2, 3, 4]);
+   loopList.head.next.next.next = loopList.head.next;
   
-  // const sortedDupeList = new SinglyLinkedList().insertAtBackMany([
-  //   1, 1, 1, 2, 3, 3, 4, 5, 5,
-  // ]);
+   const sortedDupeList = new SinglyLinkedList().insertAtBackMany([
+     1, 1, 1, 2, 3, 3, 4, 5, 5,
+   ]);
   
-  // Print your list like so:
-  // console.log(firstThreeList.toArr());
+   //Print your list like so:
+  //  console.log(firstThreeList.toArr());
 
 
   let mySll = new SinglyLinkedList()
@@ -184,4 +201,6 @@ class ListNode {
   let node1 = new ListNode(1)
   let node2 = new ListNode(2)
   let node3 = new ListNode(3)
+
+  mySll.insertAtBackMany([1,2,3])
 
