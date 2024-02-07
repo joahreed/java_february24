@@ -34,6 +34,14 @@ public class Dog extends Pet {
     }
 
 
+    @Override
+    public String toString() {
+        return "{" +
+            " swimmer='" + isSwimmer() + "'"  + super.toString();
+    }
+
+
+
 
 
 
