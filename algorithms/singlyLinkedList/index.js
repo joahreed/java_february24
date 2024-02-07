@@ -162,6 +162,23 @@ class ListNode {
         return oldhead.data
       }
 
+            /**
+       * Removes the last node of this list.
+       * - Time: O(?).
+       * - Space: O(?).
+       * @returns {any} The data from the node that was removed.
+       */
+      removeBack() {}
+
+      /**
+       * Determines whether or not the given search value exists in this list.
+       * - Time: O(?).
+       * - Space: O(?).
+       * @param {any} val The data to search for in the nodes of this list.
+       * @returns {boolean}
+       */
+      contains(val) {}
+
 
   }
   
