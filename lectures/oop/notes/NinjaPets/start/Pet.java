@@ -1,5 +1,7 @@
 package lectures.oop.notes.NinjaPets.start;
 
+
+
 import java.util.ArrayList;
 
 public class Pet {
@@ -8,7 +10,7 @@ public class Pet {
     private String type;
     private int health;
     private int energy;
-    private static ArrayList<Pet> allPets = new ArrayList<>();
+
 
     public Pet(){
         health = 100;
@@ -29,13 +31,6 @@ public class Pet {
         this.type = type;
     }
 
-
-
-
-
-    public static ArrayList<Pet> getAllPets(){
-        return allPets;
-    }
 
     public String getName() {
         return this.name;
@@ -68,6 +63,18 @@ public class Pet {
     public void setEnergy(int energy) {
         this.energy = energy;
     }
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " name='" + getName() + "'" +
+            ", type='" + getType() + "'" +
+            ", health='" + getHealth() + "'" +
+            ", energy='" + getEnergy() + "'" +
+            "}";
+    }
+
 
     
 }

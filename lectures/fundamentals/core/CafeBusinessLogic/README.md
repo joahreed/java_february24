@@ -15,7 +15,7 @@
 
 - [ ] Implement the `getStreakGoal` method and test.
 
-- [ ] Implement the getOr`derTotal method and test.
+- [ ] Implement the `getOrderTotal` method and test.
 
 - [ ] Implement the `displayMenu` method and test.
 
