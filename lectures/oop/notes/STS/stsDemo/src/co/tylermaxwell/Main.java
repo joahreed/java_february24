@@ -1,4 +1,4 @@
-package co.tylermaxwell;
+package lectures.oop.notes.STS.stsDemo.src.co.tylermaxwell;
 
 public class Main {
 

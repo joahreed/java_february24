@@ -34,17 +34,6 @@ public class Dog extends Pet {
     }
 
 
-    @Override
-    public String toString() {
-        return "{" +
-            " name='" + getName() + "'" +
-            ", type='" + getType() + "'" +
-            ", health='" + getHealth() + "'" +
-            ", energy='" + getEnergy() + "'" +
-            " swimmer='" + isSwimmer() + "'" +
-            "}";
-    }
-
 
 
 
