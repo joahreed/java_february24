@@ -1,10 +1,9 @@
-package lectures.oop.notes.Packages.start.src.main.java.co.tylermaxwell;
+package co.tylermaxwell;
 
-
-import lectures.oop.notes.Packages.start.src.main.java.co.tylermaxwell.utils.Cat;
-import lectures.oop.notes.Packages.start.src.main.java.co.tylermaxwell.utils.Dog;
-import lectures.oop.notes.Packages.start.src.main.java.co.tylermaxwell.utils.Ninja;
-import lectures.oop.notes.Packages.start.src.main.java.co.tylermaxwell.utils.Pet;
+import co.tylermaxwell.utils.Cat;
+import co.tylermaxwell.utils.Dog;
+import co.tylermaxwell.utils.Ninja;
+import co.tylermaxwell.utils.Pet;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package lectures.oop.notes.Packages.start.src.main.java.co.tylermaxwell.utils;
+package co.tylermaxwell.utils;
 
 public class Pet {
 
