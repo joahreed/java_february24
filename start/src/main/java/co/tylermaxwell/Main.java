@@ -1,5 +1,6 @@
 package co.tylermaxwell;
 
+import co.tylermaxwell.utils.Bird;
 import co.tylermaxwell.utils.Cat;
 import co.tylermaxwell.utils.Dog;
 import co.tylermaxwell.utils.Ninja;
@@ -19,6 +20,8 @@ public class Main {
         System.out.println(josh.getPet());
         josh.feed();
         System.out.println(josh.getPet());
+        Bird bird = new Bird();
+        bird.fly();
 
     }
 }
