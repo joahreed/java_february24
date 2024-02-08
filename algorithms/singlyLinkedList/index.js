@@ -168,7 +168,28 @@ class ListNode {
        * - Space: O(?).
        * @returns {any} The data from the node that was removed.
        */
-      removeBack() {}
+      removeBack() {
+        if (this.isEmpty()) {
+          return null;
+        }
+    
+        // Only 1 node.
+        if (this.head.next === null) {
+          return this.removeHead();
+        }
+    
+        // More than 1 node.
+        let runner = this.head;
+    
+        while (runner.next.next) {
+          runner = runner.next;
+        }
+    
+        // after while loop finishes, runner is now at 2nd to last node
+        const removedData = runner.next.data;
+        runner.next = null; // remove it from list
+        return removedData;
+      }
 
       /**
        * Determines whether or not the given search value exists in this list.
@@ -177,7 +198,36 @@ class ListNode {
        * @param {any} val The data to search for in the nodes of this list.
        * @returns {boolean}
        */
-      contains(val) {}
+      contains(val) {
+        let runner = this.head;
+
+        while (runner) {
+          if (runner.data === val) {
+            return true;
+          }
+          runner = runner.next;
+        }
+        return false;
+      }
+
+            /**
+       * Retrieves the data of the second to last node in this list.
+       * - Time: O(?).
+       * - Space: O(?).
+       * @returns {any} The data of the second to last node or null if there is no
+       *    second to last node.
+       */
+      secondToLast() {}
+
+      /**
+       * Removes the node that has the matching given val as it's data.
+       * - Time: O(?).
+       * - Space: O(?).
+       * @param {any} val The value to compare to the node's data to find the
+       *    node to be removed.
+       * @returns {boolean} Indicates if a node was removed or not.
+       */
+      removeVal(val) {}
 
 
   }
