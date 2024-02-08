@@ -1,10 +1,10 @@
-package tyler;
+package co.tylermaxwell.vscodedemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class VscodeDemoApplicationTests {
 
 	@Test
 	void contextLoads() {

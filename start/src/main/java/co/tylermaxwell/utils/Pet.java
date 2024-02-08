@@ -1,6 +1,6 @@
 package co.tylermaxwell.utils;
 
-public class Pet {
+public abstract class Pet {
 
     // Attributes aka fields 
     private String name;
