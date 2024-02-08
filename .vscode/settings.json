@@ -16,5 +16,6 @@
         "println",
         "SENSEI",
         "tylermaxwell"
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }
