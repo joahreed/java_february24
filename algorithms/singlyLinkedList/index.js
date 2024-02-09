@@ -217,7 +217,19 @@ class ListNode {
        * @returns {any} The data of the second to last node or null if there is no
        *    second to last node.
        */
-      secondToLast() {}
+      secondToLast() {
+        if (!this.head || !this.head.next) {
+          return null;
+        }
+    
+        // There are at least 2 nodes since the above return hasn't happened.
+        let runner = this.head;
+    
+        while (runner.next.next) {
+          runner = runner.next;
+        }
+        return runner.data;
+      }
 
       /**
        * Removes the node that has the matching given val as it's data.
@@ -227,7 +239,46 @@ class ListNode {
        *    node to be removed.
        * @returns {boolean} Indicates if a node was removed or not.
        */
-      removeVal(val) {}
+      removeVal(val) {
+        if (this.isEmpty()) {
+          return false;
+        }
+    
+        if (this.head.data === val) {
+          this.removeHead();
+          return true;
+        }
+    
+        let runner = this.head;
+    
+        while (runner.next) {
+          if (runner.next.data === val) {
+            runner.next = runner.next.next;
+            return true;
+          }
+          runner = runner.next;
+        }
+        return false;
+      }
+
+      /**
+       * Concatenates the nodes of a given list onto the back of this list.
+       * - Time: O(?).
+       * - Space: O(?).
+       * @param {SinglyLinkedList} addList An instance of a different list whose
+       *    whose nodes will be added to the back of this list.
+       * @returns {SinglyLinkedList} This list with the added nodes.
+       */
+      concat(addList) {}
+
+      /**
+       * Finds the node with the smallest data and moves that node to the front of
+       * this list.
+       * - Time: O(?).
+       * - Space: O(?).
+       * @returns {SinglyLinkedList} This list.
+       */
+      moveMinToFront() {}
 
 
   }
