@@ -21,3 +21,26 @@
 ```
 
 ## Setting, Getting, and Updating Session Attributes
+
+- setting/updating:
+
+```java
+    public String index(HttpSession session){
+		 session.setAttribute("key", "value")
+		return "index.jsp"
+    }
+```
+
+- getting:
+
+```java
+    public String index(HttpSession session){
+		 String contentOfSession = session.getAttribute("key");
+		return "index.jsp"
+    }
+```
+or access in view:
+
+```html
+<c:out value="${count}"/>
+```

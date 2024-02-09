@@ -79,7 +79,7 @@
 - [Session](./lectures/spring/intro/notes/Session/README.md)
 - [SessionInJava](./lectures/spring/intro/notes/SessionInJava/README.md)
 - [__Counter__](./lectures/spring/intro/practice/Counter/README.md)
-- [FormSubmission](./lectures/spring/intro/notes/FormSubmission/README.md)
+- [FormSubmission](./lectures/spring/intro/notes/FormSubmission/form-submission/README.md)
 - [GETPOST](./lectures/spring/intro/notes/GETPOST/README.md)
 - [POSTRedirect](./lectures/spring/intro/notes/POSTRedirect/README.md)
 - [__OmikujiForm__](./lectures/spring/intro/core/OmikujiForm/README.md)
