@@ -17,7 +17,8 @@
         "println",
         "SENSEI",
         "servlet",
-        "tylermaxwell"
+        "tylermaxwell",
+        "webjars"
     ],
     "java.compile.nullAnalysis.mode": "automatic"
 }
