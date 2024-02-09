@@ -1,0 +1,1 @@
+# [Daikichi Path Variables](https://login.codingdojo.com/m/315/9532/64274)

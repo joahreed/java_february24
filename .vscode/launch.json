@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-StsDemoApplication<stsDemo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "tyler.StsDemoApplication",
+            "projectName": "stsDemo",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

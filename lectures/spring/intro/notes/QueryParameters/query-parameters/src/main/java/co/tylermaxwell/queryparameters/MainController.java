@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
     
     @GetMapping("/")
-    public String index(@RequestParam(required = false) String searchQuery) {
+    public String index(@RequestParam(value="q", required = false) String searchQuery) {
         return "You searched for " + searchQuery;
     }
     
