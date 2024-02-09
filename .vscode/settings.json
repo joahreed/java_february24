@@ -7,6 +7,7 @@
         "Daikichi",
         "Gallaway",
         "GETPOST",
+        "glassfish",
         "Hashmatique",
         "javac",
         "JSTL",
@@ -15,6 +16,7 @@
         "POJOSANDBeens",
         "println",
         "SENSEI",
+        "servlet",
         "tylermaxwell"
     ],
     "java.compile.nullAnalysis.mode": "automatic"
