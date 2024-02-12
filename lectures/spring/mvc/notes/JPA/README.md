@@ -4,4 +4,4 @@
 
 - Add __Java Persistence API__ to your project
 
-
+# JPA dependencies

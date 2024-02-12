@@ -3,3 +3,6 @@
 ## Learning Objective:
 
 - Understand Domain Models and Validation Annotations
+
+
+>The __domain model__ is simply a Java Bean that represents our "business data," or the information that we want about a particular thing.
