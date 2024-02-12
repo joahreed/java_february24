@@ -44,7 +44,14 @@ class BSTNode {
      * - Space: O(?).
      * @returns {boolean} Indicates if this tree is empty.
      */
-    isEmpty() {}
+    isEmpty() {
+      return this.root === null
+      // if(this.root === null){
+      //   return true
+      // } else {
+      //   return false
+      // }
+    }
   
     /**
      * Retrieves the smallest integer data from this tree.
@@ -54,8 +61,15 @@ class BSTNode {
      *    the tree is being traversed.
      * @returns {number} The smallest integer from this tree.
      */
-    min(current = this.root) {}
-  
+    min(current = this.root) {
+
+      while(current.left){
+        current = current.left
+      }
+
+      return current.data
+    }
+    
     /**
      * Retrieves the smallest integer data from this tree.
      * - Time: O(?).
@@ -63,20 +77,27 @@ class BSTNode {
      * @param {Node} current The node that is currently accessed from the tree as
      *    the tree is being traversed.
      * @returns {number} The smallest integer from this tree.
-     */
-    minRecursive(current = this.root) {}
+    */
+   minRecursive(current = this.root) {}
+   
+   /**
+    * Retrieves the largest integer data from this tree.
+    * - Time: O(?).
+    * - Space: O(?).
+    * @param {Node} current The node that is currently accessed from the tree as
+    *    the tree is being traversed.
+    * @returns {number} The largest integer from this tree.
+   */
+  max(current = this.root) {
+
+    while(current.right){
+      current = current.right
+    }
+    
+    return current.data
+  }
   
-    /**
-     * Retrieves the largest integer data from this tree.
-     * - Time: O(?).
-     * - Space: O(?).
-     * @param {Node} current The node that is currently accessed from the tree as
-     *    the tree is being traversed.
-     * @returns {number} The largest integer from this tree.
-     */
-    max(current = this.root) {}
-  
-    /**
+  /**
      * Retrieves the largest integer data from this tree.
      * - Time: O(?).
      * - Space: O(?).
@@ -163,3 +184,32 @@ class BSTNode {
   //   .insert(44)
   //   .insert(66)
   //   .insert(90);
+
+  const myBST = new BinarySearchTree()
+
+  const node1 = new BSTNode(50)
+  const node2 = new BSTNode(40)
+  const node3 = new BSTNode(30)
+  const node4 = new BSTNode(20)
+  const node5 = new BSTNode(60)
+  const node6 = new BSTNode(45)
+  const node7 = new BSTNode(55)
+  const node8 = new BSTNode(75)
+  const node9 = new BSTNode(95)
+
+
+  myBST.root = node1
+  myBST.root.left = node2
+  myBST.root.left.left = node3
+  myBST.root.left.left.left = node4
+  myBST.root.right = node5
+  node2.right = node6
+  node5.left = node7
+  node5.right = node8
+  node8.right = node9
+
+
+
+
+
+
