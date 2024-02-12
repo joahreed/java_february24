@@ -6,3 +6,4 @@
 - Be completely comfortable referencing static CSS
 - Note the importance of making your key assignments/projects look better
 - Understand why rendering HTML on a URL that received a POST is a bad idea
+
