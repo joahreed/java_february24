@@ -22,15 +22,29 @@ Controller:
 
 flowchart TD
      subgraph model
+
+    end
+
+    controller --> model --> id1[(Database)]
+    controller --> view
+
+```
+
+---
+
+
+## Spring MVC structure
+
+```mermaid
+
+flowchart TD
+     subgraph model
         direction TB
         service  --> repository
     end
 
     controller --> model --> id1[(Database)]
     controller --> view
-
-
-
 
 ```
 
