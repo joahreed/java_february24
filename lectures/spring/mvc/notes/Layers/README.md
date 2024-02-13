@@ -14,3 +14,32 @@ View:
 Controller:
 
 - `.java` file with `@Controller` annotation.
+
+
+## MVC Structure
+
+```mermaid
+
+flowchart TD
+     subgraph model
+        direction TB
+        service  --> repository
+    end
+
+    controller --> model --> id1[(Database)]
+    controller --> view
+
+
+
+
+```
+
+
+## Communication chart
+
+```mermaid
+flowchart LR
+
+controller --> service --> repository --> id1[(Database)]
+
+```
