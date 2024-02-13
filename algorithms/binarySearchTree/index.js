@@ -28,6 +28,7 @@ class BSTNode {
    * their parent and the data of nodes to the right are > their parent's data.
    */
   class BinarySearchTree {
+
     constructor() {
       /**
        * Just like the head of a linked list, this is the start of our tree which
@@ -93,9 +94,8 @@ class BSTNode {
     while(current.right){
       current = current.right
     }
-    
     return current.data
-  } //! MONDAY
+  } //! MONDAY END
 
     /**
    * Determines if this tree contains the given searchVal.
