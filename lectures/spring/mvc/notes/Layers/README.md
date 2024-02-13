@@ -2,3 +2,15 @@
 
 ## Learning Objective:
 Gain a better understanding of MVC Layers
+
+Model:
+
+- service layer
+- persistence layer
+
+View:
+- `.jsp`
+
+Controller:
+
+- `.java` file with `@Controller` annotation.
