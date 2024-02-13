@@ -4,7 +4,7 @@
 Gain a better understanding of MVC Layers
 
 Model:
-
+- domain model
 - service layer
 - persistence layer
 
@@ -40,7 +40,7 @@ flowchart TD
 flowchart TD
      subgraph model
         direction TB
-        service  --> repository
+        service  --> multiline[repository + domain model]
     end
 
     controller --> model --> id1[(Database)]
