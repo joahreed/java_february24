@@ -26,14 +26,16 @@
             
             <div class="form-control">
                 <form:label path="name">name</form:label>
-                <form:input path="name" />
+                <form:input path="name"  value="${erecipe.name}" />
                 <form:errors path="name" />
             </div>
 
             <div class="form-control">
                 <form:label path="description">description</form:label>
-                <form:input path="description" />
+                <form:input path="description" value="${erecipe.description}" />
+                <div style="color: red;">
                 <form:errors path="description" />
+                </div>
             </div> 
             
             

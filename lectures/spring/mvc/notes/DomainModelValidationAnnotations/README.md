@@ -6,3 +6,4 @@
 
 
 >The __domain model__ is simply a Java Bean that represents our "business data," or the information that we want about a particular thing.
+

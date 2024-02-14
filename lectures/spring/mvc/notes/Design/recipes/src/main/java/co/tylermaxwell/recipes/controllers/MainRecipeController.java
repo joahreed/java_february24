@@ -5,17 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import co.tylermaxwell.recipes.models.Recipe;
 import co.tylermaxwell.recipes.services.RecipeService;
-import org.springframework.web.bind.annotation.RequestParam;
+import jakarta.validation.Valid;
 
 
 @Controller
@@ -33,14 +33,18 @@ public class MainRecipeController {
     
 
     @PostMapping("/recipes/create")
-    public String CreateRecipe(Recipe recipe) { 
+    public String CreateRecipe(@Valid Recipe recipe, BindingResult result) {
+        System.out.println(result.hasErrors()); 
+        if(result.hasErrors()){
+            return "new.jsp";
+        }
         recipeService.CreateRecipe(recipe);
         return "redirect:/recipes";
     }
 
     //! READ ALL
 
-    @GetMapping("/recipes")
+    @GetMapping(value={"", "/", "/recipes"})
     public String getAllRecipes(Model model) {
         List<Recipe> recipes = recipeService.getAllRecipes();
         model.addAttribute("recipes", recipes);
@@ -67,9 +71,14 @@ public class MainRecipeController {
         return "edit.jsp";
     }
     
-
+    
     @PutMapping("recipes/{id}")
-    public String updateRecipe(@PathVariable Long id, @ModelAttribute Recipe recipe) {
+    public String updateRecipe(@Valid @ModelAttribute Recipe recipe, BindingResult result, Model model, @PathVariable Long id ) {
+        if(result.hasErrors()){
+            Recipe erecipe = recipeService.getOneRecipe(id);
+            model.addAttribute("erecipe", erecipe);
+            return "edit.jsp";
+        }
         recipeService.updateRecipe(recipe);
         return "redirect:/recipes";   
     }
