@@ -18,37 +18,29 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-<div class="container">
 
-    <h1>All Recipes</h1>
+    <div class="container">
+        <h2>Edit the <c:out value="${recipe.name}"></c:out>Recipe</h2>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach var="recipe" items="${recipes}">
-                <tr>
-                    <td><c:out value="${recipe.id}"></c:out></td>
-                    <td><c:out value="${recipe.name}"></c:out></td>
-                    <td><c:out value="${recipe.description}"></c:out></td>
-                    <td>
-                        <a href="/recipes/${recipe.id}">show</a>
-                    </td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+        <form:form action="/recipes/${recipe.id}" method="PUT" modelAttribute="recipe">
+            
+            <div class="form-control">
+                <form:label path="name">name</form:label>
+                <form:input path="name" />
+                <form:errors path="name" />
+            </div>
 
-    <a class="btn btn-success" href="/recipes/new">add recipe</a>
+            <div class="form-control">
+                <form:label path="description">description</form:label>
+                <form:input path="description" />
+                <form:errors path="description" />
+            </div> 
+            
+            
+            <input type="submit" value="submit">
+        </form:form>
+    </div>
+    </body>
+    </html>
     
     
-</div>
-</body>
-</html>
-

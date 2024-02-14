@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,18 +21,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainRecipeController {
 
-        @Autowired
+    @Autowired
     RecipeService recipeService;
 
     //! CREATE
 
-    @GetMapping("/recipes/create")
+    @GetMapping("/recipes/new")
     public String getMethodName(@ModelAttribute Recipe recipe) {
         return "new.jsp";
     }
     
 
-    @PostMapping("/recipes/new")
+    @PostMapping("/recipes/create")
     public String CreateRecipe(Recipe recipe) { 
         recipeService.CreateRecipe(recipe);
         return "redirect:/recipes";
@@ -40,8 +41,9 @@ public class MainRecipeController {
     //! READ ALL
 
     @GetMapping("/recipes")
-    public String getAllRecipes() {
+    public String getAllRecipes(Model model) {
         List<Recipe> recipes = recipeService.getAllRecipes();
+        model.addAttribute("recipes", recipes);
         return "recipes.jsp";
     }
     
@@ -49,20 +51,34 @@ public class MainRecipeController {
     //! READ ONE
 
     @GetMapping("/recipes/{id}")
-    public Recipe getOneRecipe(@PathVariable("id") Long id){
-        return recipeService.getOneRecipe(id);   
+    public String getOneRecipe(@PathVariable("id") Long id, Model model){
+        Recipe recipe = recipeService.getOneRecipe(id);
+        model.addAttribute("recipe", recipe);
+        return "show.jsp";
+        
     }
     
     //! UPDATE
+    
+    @GetMapping("/recipes/edit/{id}")
+    public String editRecipeForm(@PathVariable Long id, Model model) {
+        Recipe recipe = recipeService.getOneRecipe(id);
+        model.addAttribute("recipe", recipe);
+        return "edit.jsp";
+    }
+    
+
     @PutMapping("recipes/{id}")
-    public Recipe updateRecipe(@PathVariable Long id, @RequestBody Recipe recipe) {
-        return recipeService.updateRecipeById(id, recipe);   
+    public String updateRecipe(@PathVariable Long id, @ModelAttribute Recipe recipe) {
+        recipeService.updateRecipe(recipe);
+        return "redirect:/recipes";   
     }
 
     //! DELETE
     @DeleteMapping("/recipes/{id}")
-    public void deleteRecipe(@PathVariable Long id){
+    public String deleteRecipe(@PathVariable Long id){
         recipeService.destroyRecipe(id);
+        return "redirect:/recipes";
     }
     
 }

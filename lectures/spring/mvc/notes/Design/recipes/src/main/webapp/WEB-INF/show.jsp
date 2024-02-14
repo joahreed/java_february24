@@ -18,9 +18,10 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
+${recipes}
 <div class="container">
 
-    <h1>All Recipes</h1>
+    <h1><c:out value="${recipe.name}"></c:out> Recipe</h1>
 
     <table class="table">
         <thead>
@@ -28,24 +29,24 @@
                 <th>id</th>
                 <th>name</th>
                 <th>description</th>
-                <th>actions</th>
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="recipe" items="${recipes}">
+            
                 <tr>
                     <td><c:out value="${recipe.id}"></c:out></td>
                     <td><c:out value="${recipe.name}"></c:out></td>
                     <td><c:out value="${recipe.description}"></c:out></td>
-                    <td>
-                        <a href="/recipes/${recipe.id}">show</a>
-                    </td>
                 </tr>
-            </c:forEach>
+            
         </tbody>
     </table>
 
-    <a class="btn btn-success" href="/recipes/new">add recipe</a>
+    <a class="btn btn-warning" href="/recipes/edit/${recipe.id}">edit recipe</a>
+    <form action="/recipes/${recipe.id}" method="POST">
+        <input type="hidden" name="_method" value="DELETE">   
+        <input type="submit" value="delete">
+    </form>
     
     
 </div>

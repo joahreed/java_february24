@@ -18,19 +18,29 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   <form:form action="/recipes/new" method="POST" modelAttribute="recipe">
 
-   <form:label path="name">name</form:label>
-    <form:input path="name" />
-    <form:errors path="name" />
+    <div class="container">
+        <h2>Add a Recipe</h2>
 
-    <form:label path="description">description</form:label>
-    <form:input path="description" />
-    <form:errors path="description" />
+        <form:form action="/recipes/create" method="POST" modelAttribute="recipe">
+            
+            <div class="form-control">
+                <form:label path="name">name</form:label>
+                <form:input path="name" />
+                <form:errors path="name" />
+            </div>
 
-
-    <input type="submit" value="submit">
-   </form:form>
-</body>
-</html>
-
+            <div class="form-control">
+                <form:label path="description">description</form:label>
+                <form:input path="description" />
+                <form:errors path="description" />
+            </div> 
+            
+            
+            <input type="submit" value="submit">
+        </form:form>
+    </div>
+    </body>
+    </html>
+    
+    
