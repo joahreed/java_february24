@@ -191,7 +191,10 @@ insert(newVal) {}
  *    the tree is being traversed.
  * @returns {BinarySearchTree} This tree.
  */
-insertRecursive(newVal, curr = this.root) {}
+insertRecursive(newVal, curr = this.root) {
+
+  
+}
   
     // Logs this tree horizontally with the root on the left.
     print(node = this.root, spaceCnt = 0, spaceIncr = 10) {
