@@ -18,7 +18,27 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   
+   ${recipes}
+   <table class="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <c:forEach var="recipe" items="${recipes}">
+            <tr>
+                <td><c:out value="${recipe.id}"></c:out></td>
+                <td><c:out value="${recipe.name}"></c:out></td>
+                <td><c:out value="${recipe.description}"></c:out></td>
+            </tr>
+
+
+        </c:forEach>
+    </tbody>
+   </table>
 </body>
 </html>
 
