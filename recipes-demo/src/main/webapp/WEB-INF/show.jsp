@@ -18,38 +18,27 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
+
    <table class="table">
     <thead>
         <tr>
             <th>id</th>
             <th>name</th>
             <th>description</th>
-            <th>actions</th>
         </tr>
     </thead>
     <tbody>
-        <c:forEach var="recipe" items="${recipes}">
+    
             <tr>
                 <td><c:out value="${recipe.id}"></c:out></td>
                 <td><c:out value="${recipe.name}"></c:out></td>
                 <td><c:out value="${recipe.description}"></c:out></td>
-                <td>
-                    <a class="btn btn-primary" href="/recipes/${recipe.id}">show</a>
-                    <a class="btn btn-warning" href="/recipes/edit/${recipe.id}">edit</a>
-                    <form action="/recipes/${recipe.id}" method="post">
-                        <input type="hidden" name="_method" value="delete">
-                        <input type="submit" value="Delete">
-                    </form>
-                    
-                </td>
             </tr>
 
 
-        </c:forEach>
+    
     </tbody>
    </table>
-
-   <a class="btn btn-success" href="/recipes/new">add recipe</a>
 </body>
 </html>
 

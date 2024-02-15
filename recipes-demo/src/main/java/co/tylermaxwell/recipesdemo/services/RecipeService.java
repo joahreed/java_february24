@@ -39,7 +39,9 @@ public class RecipeService {
         recipeRepository.deleteById(id);
     }
 
-
+    public void updateRecipe(Recipe recipe) {
+        recipeRepository.save(recipe);
+    }
 
 
     
