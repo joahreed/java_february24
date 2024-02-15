@@ -5,17 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import co.tylermaxwell.recipesdemo.models.Recipe;
 import co.tylermaxwell.recipesdemo.services.RecipeService;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
+import jakarta.validation.Valid;
 
 
 
@@ -36,7 +36,11 @@ public class MainRecipeController {
     }
 
     @PostMapping("/recipes/create")
-    public String createRecipeHandler(Recipe recipe) {
+    public String createRecipeHandler(@Valid Recipe recipe, BindingResult result) {
+        System.out.println(result.hasErrors());
+        if(result.hasErrors()){
+            return "new.jsp";
+        }
         System.out.println(recipe);
         recipeService.createNewRecipe(recipe);
         return "redirect:/recipes";
@@ -74,7 +78,10 @@ public class MainRecipeController {
     }
 
     @PutMapping("recipes/{id}")
-    public String updateRecipeHandler(@PathVariable Long id, @ModelAttribute Recipe recipe) {
+    public String updateRecipeHandler(@Valid @ModelAttribute Recipe recipe, BindingResult result, @PathVariable Long id) {
+        if(result.hasErrors()){
+            return "edit.jsp";
+        }
         recipeService.updateRecipe(recipe);
         return "redirect:/recipes";
     }

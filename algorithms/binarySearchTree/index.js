@@ -259,7 +259,10 @@ insertRecursive(newVal, curr = this.root) {
      * @param {Array<number>} vals The data that has been visited so far.
      * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
     */
-   toArrPreorder(node = this.root, vals = []) {}
+   toArrPreorder(node = this.root, vals = []) {
+
+    
+   }
    
    /* fullTree
                        root
@@ -300,8 +303,12 @@ insertRecursive(newVal, curr = this.root) {
  * @param {Array<number>} vals The data that has been visited so far.
  * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
  */
-toArrPostorder(node = this.root, vals = []) {} //! END THURSDAY
+toArrPostorder(node = this.root, vals = []) {
+
+} //! END THURSDAY
   
+
+
     // Logs this tree horizontally with the root on the left.
     print(node = this.root, spaceCnt = 0, spaceIncr = 10) {
       if (!node) {
@@ -383,28 +390,28 @@ toArrPostorder(node = this.root, vals = []) {} //! END THURSDAY
   //   .insert(66)
   //   .insert(90);
 
-  const myBST = new BinarySearchTree()
+  // const myBST = new BinarySearchTree()
 
-  const node1 = new BSTNode(50)
-  const node2 = new BSTNode(40)
-  const node3 = new BSTNode(30)
-  const node4 = new BSTNode(20)
-  const node5 = new BSTNode(60)
-  const node6 = new BSTNode(45)
-  const node7 = new BSTNode(55)
-  const node8 = new BSTNode(75)
-  const node9 = new BSTNode(95)
+  // const node1 = new BSTNode(50)
+  // const node2 = new BSTNode(40)
+  // const node3 = new BSTNode(30)
+  // const node4 = new BSTNode(20)
+  // const node5 = new BSTNode(60)
+  // const node6 = new BSTNode(45)
+  // const node7 = new BSTNode(55)
+  // const node8 = new BSTNode(75)
+  // const node9 = new BSTNode(95)
 
 
-  myBST.root = node1
-  myBST.root.left = node2
-  myBST.root.left.left = node3
-  myBST.root.left.left.left = node4
-  myBST.root.right = node5
-  node2.right = node6
-  node5.left = node7
-  node5.right = node8
-  node8.right = node9
+  // myBST.root = node1
+  // myBST.root.left = node2
+  // myBST.root.left.left = node3
+  // myBST.root.left.left.left = node4
+  // myBST.root.right = node5
+  // node2.right = node6
+  // node5.left = node7
+  // node5.right = node8
+  // node8.right = node9
 
 
 

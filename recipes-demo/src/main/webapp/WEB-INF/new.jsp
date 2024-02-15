@@ -25,7 +25,9 @@
     <div class="form-control">
         <form:label path="name">name</form:label>
         <form:input path="name" />
-        <form:errors path="name" />
+        <div style="color:red">
+            <form:errors path="name" />
+        </div>
     </div>
 
     <div class="form-control">
