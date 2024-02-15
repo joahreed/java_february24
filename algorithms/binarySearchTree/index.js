@@ -179,7 +179,35 @@ class BSTNode {
  * @param {number} newVal The data to be added to a new node.
  * @returns {BinarySearchTree} This tree.
  */
-insert(newVal) {}
+insert(newVal) {
+  const node = new BSTNode(newVal);
+
+  if (this.isEmpty()) {
+    this.root = node;
+    return this;
+  }
+
+  let current = this.root;
+
+  while (true) {
+    if (newVal <= current.data) {
+      if (current.left === null) {
+        current.left = node;
+        return this;
+      }
+
+      current = current.left;
+    } else {
+      // newVal is greater than current.data
+      if (current.right === null) {
+        current.right = node;
+        return this;
+      }
+
+      current = current.right;
+    }
+  }
+}
 
 /**
  * Inserts a new node with the given newVal in the right place to preserver
@@ -192,33 +220,77 @@ insert(newVal) {}
  * @returns {BinarySearchTree} This tree.
  */
 insertRecursive(newVal, curr = this.root) {
+  if (this.isEmpty()) {
+    this.root = new BSTNode(newVal);
+    return this;
+  }
 
+  if (newVal > curr.data) {
+    if (curr.right === null) {
+      curr.right = new BSTNode(newVal);
+      return this;
+    }
+    return this.insertRecursive(newVal, curr.right);
+  }
+
+  if (curr.left === null) {
+    curr.left = new BSTNode(newVal);
+    return this;
+  }
+  return this.insertRecursive(newVal, curr.left);
   
 } //! END WEDNESDAY
 
-/**
- * DFS Preorder: (CurrNode, Left, Right)
- * Converts this BST into an array following Depth First Search preorder.
- * Example on the fullTree var:
- * [25, 15, 10, 4, 12, 22, 18, 24, 50, 35, 31, 44, 70, 66, 90]
- * @param {Node} node The current node during the traversal of this tree.
- * @param {Array<number>} vals The data that has been visited so far.
- * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
- */
-toArrPreorder(node = this.root, vals = []) {}
-
-/**
- * DFS Inorder: (Left, CurrNode, Right)
- * Converts this BST into an array following Depth First Search inorder.
- * See debugger call stack to help understand the recursion.
- * Example on the fullTree var:
- * [4, 10, 12, 15, 18, 22, 24, 25, 31, 35, 44, 50, 66, 70, 90]
- * @param {Node} node The current node during the traversal of this tree.
- * @param {Array<number>} vals The data that has been visited so far.
- * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
- */
-toArrInorder(node = this.root, vals = []) {}
-
+/* fullTree
+                    root
+                <-- 25 -->
+              /            \
+            15             50
+          /    \         /    \
+        10     22      35     70
+      /   \   /  \    /  \   /  \
+    4    12  18  24  31  44 66  90
+    /**
+     * DFS Preorder: (CurrNode, Left, Right)
+     * Converts this BST into an array following Depth First Search preorder.
+     * Example on the fullTree var:
+     * [25, 15, 10, 4, 12, 22, 18, 24, 50, 35, 31, 44, 70, 66, 90]
+     * @param {Node} node The current node during the traversal of this tree.
+     * @param {Array<number>} vals The data that has been visited so far.
+     * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
+    */
+   toArrPreorder(node = this.root, vals = []) {}
+   
+   /* fullTree
+                       root
+                   <-- 25 -->
+                 /            \
+               15             50
+             /    \         /    \
+           10     22      35     70
+         /   \   /  \    /  \   /  \
+       4    12  18  24  31  44 66  90
+       /**
+        * DFS Inorder: (Left, CurrNode, Right)
+        * Converts this BST into an array following Depth First Search inorder.
+        * See debugger call stack to help understand the recursion.
+        * Example on the fullTree var:
+        * [4, 10, 12, 15, 18, 22, 24, 25, 31, 35, 44, 50, 66, 70, 90]
+        * @param {Node} node The current node during the traversal of this tree.
+        * @param {Array<number>} vals The data that has been visited so far.
+        * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
+       */
+      toArrInorder(node = this.root, vals = []) {}
+      
+      /* fullTree
+                          root
+                      <-- 25 -->
+                    /            \
+                  15             50
+                /    \         /    \
+              10     22      35     70
+            /   \   /  \    /  \   /  \
+          4    12  18  24  31  44 66  90
 /**
  * DFS Postorder (Left, Right, CurrNode)
  * Converts this BST into an array following Depth First Search postorder.
@@ -228,7 +300,7 @@ toArrInorder(node = this.root, vals = []) {}
  * @param {Array<number>} vals The data that has been visited so far.
  * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
  */
-toArrPostorder(node = this.root, vals = []) {}
+toArrPostorder(node = this.root, vals = []) {} //! END THURSDAY
   
     // Logs this tree horizontally with the root on the left.
     print(node = this.root, spaceCnt = 0, spaceIncr = 10) {
@@ -249,12 +321,6 @@ toArrPostorder(node = this.root, vals = []) {}
 
 
   } //! END BinarySearchTree
-
-
-
-
-
-
 
   
   const emptyTree = new BinarySearchTree();
