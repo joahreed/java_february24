@@ -6,3 +6,5 @@
 - Encounter common issues when implementing update in a full-stack application
 - More practice organizing render routes and POST routes
 - Bonus: Practice RESTful routing by implementing a PUT route
+
+![](./)
