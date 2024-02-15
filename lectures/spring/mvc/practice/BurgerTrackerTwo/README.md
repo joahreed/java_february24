@@ -7,4 +7,3 @@
 - More practice organizing render routes and POST routes
 - Bonus: Practice RESTful routing by implementing a PUT route
 
-![](./)
