@@ -302,10 +302,52 @@ insertRecursive(newVal, curr = this.root) {
  * @param {Node} node The current node during the traversal of this tree.
  * @param {Array<number>} vals The data that has been visited so far.
  * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
- */
+*/
 toArrPostorder(node = this.root, vals = []) {
-
+  
 } //! END THURSDAY
+
+    /* fullTree
+                        root
+                    <-- 25 -->
+                  /            \
+                15             50
+              /    \         /    \
+            10     22      35     70
+          /   \   /  \    /  \   /  \
+        4    12  18  24  31  44 66  90
+    /**
+
+    /**
+     * BFS order: horizontal rows top-down left-to-right.
+     * Converts this BST into an array following Breadth First Search order.
+     * Example on the fullTree var:
+     * [25, 15, 50, 10, 22, 35, 70, 4, 12, 18, 24, 31, 44, 66, 90]
+     * @param {Node} current The current node during the traversal of this tree.
+     * @returns {Array<number>} The data of all nodes in BFS order.
+     */
+    toArrLevelorder(current = this.root) {}
+
+    /**
+     * Recursively counts the total number of nodes in this tree.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {Node} node The current node during the traversal of this tree.
+     * @returns {number} The total number of nodes.
+     */
+    size(node = this.root) {}
+
+    /**
+     * Calculates the height of the tree which is based on how many nodes from
+     * top to bottom (whichever side is taller).
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {Node} node The current node during traversal of this tree.
+     * @returns {number} The height of the tree.
+     */
+    height(node = this.root) {}
+
+
   
 
 
