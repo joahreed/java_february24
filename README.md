@@ -121,11 +121,11 @@
 
 ## Spring Full
 
-- [ProjectSetup](./lectures/spring/onetomany/notes/ProjectSetup/README.md)
-- [UserLoginUser](./lectures/spring/onetomany/notes/UserLoginUser/README.md)
-- [LoginPage](./lectures/spring/onetomany/notes/LoginPage/README.md)
-- [PasswordSecurity](./lectures/spring/onetomany/notes/PasswordSecurity/README.md)
-- [RepositoryService](./lectures/spring/onetomany/notes/RepositoryService/README.md)
-- [AuthValidationLogic](./lectures/spring/onetomany/notes/AuthValidationLogic/README.md)
-- [__LoginReg__](./lectures/spring/onetomany/core/LoginReg/README.md)
-- [__BookClub__](./lectures/spring/onetomany/core/BookClub/README.md)
+- [ProjectSetup](./lectures/spring/fullSpring/notes/ProjectSetup/README.md)
+- [UserLoginUser](./lectures/spring/fullSpring/notes/UserLoginUser/README.md)
+- [LoginPage](./lectures/spring/fullSpring/notes/LoginPage/README.md)
+- [PasswordSecurity](./lectures/spring/fullSpring/notes/PasswordSecurity/README.md)
+- [RepositoryService](./lectures/spring/fullSpring/notes/RepositoryService/README.md)
+- [AuthValidationLogic](./lectures/spring/fullSpring/notes/AuthValidationLogic/README.md)
+- [__LoginReg__](./lectures/spring/fullSpring/core/LoginReg/README.md)
+- [__BookClub__](./lectures/spring/fullSpring/core/BookClub/README.md)
