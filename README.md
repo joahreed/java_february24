@@ -129,3 +129,4 @@
 - [AuthValidationLogic](./lectures/spring/fullSpring/notes/AuthValidationLogic/README.md)
 - [__LoginReg__](./lectures/spring/fullSpring/core/LoginReg/README.md)
 - [__BookClub__](./lectures/spring/fullSpring/core/BookClub/README.md)
+- [BeltReview](./lectures/spring/fullSpring/notes/BeltReview/README.md)
