@@ -12,6 +12,9 @@ import co.tylermaxwell.dojosninjaslive.models.Dojo;
 import co.tylermaxwell.dojosninjaslive.models.Ninja;
 import co.tylermaxwell.dojosninjaslive.services.DojoService;
 import co.tylermaxwell.dojosninjaslive.services.NinjaService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @Controller
@@ -29,6 +32,14 @@ public class NinjaController {
         model.addAttribute("dojos", dojos);
         return "ninjas/new.jsp";
     }
+
+    @PostMapping("/ninjas/create")
+    public String createNinja(Ninja ninja) {
+        System.out.println(ninja);
+        Ninja newNinja = ninjaService.createNinjaInDB(ninja);
+        return String.format("redirect:/dojos/%s", newNinja.getDojo().getId());
+    }
+    
     
     
 }

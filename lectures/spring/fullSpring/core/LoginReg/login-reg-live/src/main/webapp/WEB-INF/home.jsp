@@ -11,34 +11,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>show dojo</title>
+    <title>Tacos</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-    ${dojo.ninjas}
-   <h1><c:out value="${dojo.name}"></c:out>'s Ninjas</h1>
+   <h1>IT Worked!!!</h1>
+   <h2>Welcome ${userName}</h2>
 
-   <table class="table">
-    <thead>
-        <tr>
-            <th>first</th>
-            <th>last</th>
-            <th>age</th>
-        </tr>
-    </thead>
-    <tbody>
-        <c:forEach var="ninja" items="${dojo.ninjas}">
-            <tr>
-                <td><c:out value="${ninja.firstName}"></c:out></td>
-                <td><c:out value="${ninja.lastName}"></c:out></td>
-                <td><c:out value="${ninja.age}"></c:out></td>
-            </tr>
-        </c:forEach>
-    </tbody>
-   </table>
+   <a class="btn btn-danger"href="/logout">logout</a>
 </body>
 </html>
 

@@ -93,6 +93,18 @@ public class Ninja {
     }
     
 
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", firstName='" + getFirstName() + "'" +
+            ", lastName='" + getLastName() + "'" +
+            ", age='" + getAge() + "'" +
+            ", createdAt='" + getCreatedAt() + "'" +
+            ", updatedAt='" + getUpdatedAt() + "'" +
+            "}";
+    }
+
     
 
 }
