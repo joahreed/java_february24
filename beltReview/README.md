@@ -3,11 +3,12 @@
 
 ![](1657045601__Recipes_Belt_Reviewer_2022.png)
 
-- [application.properties]():
+- [application.properties](./belt-review/src/main/resources/application.properties):
 
 ```
 # Where are jsp files? HERE!
 spring.mvc.view.prefix=/WEB-INF/
+spring.mvc.view.suffix=.jsp
 # Data Persistence
 spring.datasource.url=jdbc:mysql://localhost:3306/belt-review-feb?createDatabaseIfNotExist=true
 spring.datasource.username=root
@@ -16,7 +17,7 @@ spring.jpa.hibernate.ddl-auto=update
 # For Update and Delete method hidden inputs
 spring.mvc.hiddenmethod.filter.enabled=true
 ```
-- [pom.xml]():
+- [pom.xml](./belt-review/pom.xml):
 
 ```xml
 <!-- DEPENDENCIES FOR DISPLAYING JSPS AND USING JSTL TAGS -->
@@ -69,7 +70,7 @@ spring.mvc.hiddenmethod.filter.enabled=true
     </dependency>
 ```
 - Views:
-  - [login page]():
+  - [login page](./belt-review/src/main/webapp/WEB-INF/index.jsp):
 
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -128,8 +129,6 @@ spring.mvc.hiddenmethod.filter.enabled=true
     </div>    
     <input type="submit" value="Submit"/>
 </form:form> 
-
-
         </div>
         <div class="col">
             <h2>Login</h2>
@@ -155,20 +154,47 @@ spring.mvc.hiddenmethod.filter.enabled=true
 </html>
 
 ```
-  - [show all recipes]()
+  - [show all recipes](./belt-review/src/main/webapp/WEB-INF/recipes/index.jsp):
 
-  - [show one recipe]()
+```html
 
-  - [add new recipe]()
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- c:out ; c:forEach etc. --> 
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<!-- Formatting (dates) --> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
+<!-- form:form -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<!-- for rendering errors on PUT routes -->
+<%@ page isErrorPage="true" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>all recipes</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css"> <!-- change to match your file/naming structure -->
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
+</head>
+<body>
+   
+</body>
+</html>
 
-  - [edit recipe]()
+```
+
+  - [show one recipe](./belt-review/src/main/webapp/WEB-INF/recipes/show.jsp)
+
+  - [add new recipe](./belt-review/src/main/webapp/WEB-INF/recipes/new.jsp)
+
+  - [edit recipe](./belt-review/src/main/webapp/WEB-INF/recipes/edit.jsp)
 
 - Controllers:
 
-  - [MainController.java]():
+  - [HomeController.java](./belt-review/src/main/java/co/tylermaxwell/beltreview/controllers/HomeController.java):
 
 ```java
-
 @Controller
 public class HomeController {
     
@@ -179,41 +205,42 @@ public class HomeController {
     public String index(Model model) {
         model.addAttribute("newUser", new User());
         model.addAttribute("newLogin", new LoginUser());
-        return "index.jsp";
+        return "index";
     }
     
     @PostMapping("/register")
-    public String register(@Valid @ModelAttribute("newUser") User newUser, 
-            BindingResult result, Model model, HttpSession session) {
-        
+    public String register(@Valid @ModelAttribute("newUser") User newUser, BindingResult result, Model model, HttpSession session) {
+        userService.register(newUser, result, session);
         if(result.hasErrors()) {
             model.addAttribute("newLogin", new LoginUser());
-            return "index.jsp";
+            return "index";
         }
         
-        return "redirect:/home";
+        return "redirect:/recipes";
     }
     
     @PostMapping("/login")
     public String login(@Valid @ModelAttribute("newLogin") LoginUser newLogin, BindingResult result, Model model, HttpSession session) {
-
-        User user = userService.login(newLogin, result);
-    
+        userService.login(newLogin, result, session);
         if(result.hasErrors()) {
             model.addAttribute("newUser", new User());
-            return "index.jsp";
+            return "index";
         }
-        return "redirect:/home";
+        return "redirect:/recipes";
     }  
-}
 
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        return userService.logout(session);
+    }
+}
 ```
 
-  - [RecipeController.java]()
+  - [RecipeController.java](./belt-review/src/main/java/co/tylermaxwell/beltreview/controllers/RecipeController.java)
 
 - Models:
 
-  - [User.java]():
+  - [User.java](./belt-review/src/main/java/co/tylermaxwell/beltreview/models/User.java):
 
 ```java
 @Entity
@@ -247,7 +274,7 @@ public class User {
 }
 ```
 
-  - [LoginUser.java]():
+  - [LoginUser.java](./belt-review/src/main/java/co/tylermaxwell/beltreview/models/LoginUser.java):
 
 ```java
 public class LoginUser {
@@ -265,10 +292,10 @@ public class LoginUser {
     //TODO - Don't forget to generate getters and setters
 }
 ```
-  - [Recipe.java]()
+  - [Recipe.java](./belt-review/src/main/java/co/tylermaxwell/beltreview/models/Recipe.java)
 
 - Repositories:
-  - [UserRepository.java]():
+  - [UserRepository.java](./belt-review/src/main/java/co/tylermaxwell/beltreview/repositories/UserRepository.java):
 
 ```java
 
@@ -277,11 +304,12 @@ public interface UserRepository extends CrudRepository<User, Long> {
 }
 ```
 
-  - [RecipeRepository.java]()
+  - [RecipeRepository.java](./belt-review/src/main/java/co/tylermaxwell/beltreview/repositories/RecipeRepository.java)
 
 - Services:
 
-  - [UserService.java]():
+  - [UserService.java](./belt-review/src/main/java/co/tylermaxwell/beltreview/services/UserService.java):
+
 ```java
 @Service
 public class UserService {
@@ -289,49 +317,64 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
     
-    public User register(User newUser, BindingResult result) {
+    public User register(User newUser, BindingResult result, HttpSession session) {
     
-        // Reject if email is taken (present in database)
-        if(userRepository.findByEmail(newUser.getEmail()).isPresent()){
+        if(findUserByEmail(newUser.getEmail()) != null){
             result.rejectValue("email", "Email", "Already Registered");
         }
-        // Reject if password doesn't match confirmation
+   
         if(!newUser.getPassword().equals(newUser.getConfirm())){
             result.rejectValue("password", "Password", "passwords must match");
         }
-        // Return null if result has errors
+   
         if(result.hasErrors()){
             return null;
         }
-            // Hash and set password, save user to database
-        String hasedPW = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
-        newUser.setPassword(hasedPW);
+   
+        String hashedPW = BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt());
+        newUser.setPassword(hashedPW);
 
-        return userRepository.save(newUser);
+        User user = userRepository.save(newUser);
+        logUserIn(session, user);
+   
+        return user;
     }
 
 
 
-    public User login(LoginUser newLoginObject, BindingResult result) {
+    public User login(LoginUser newLoginObject, BindingResult result, HttpSession session) {
         
-        // Find user in the DB by email
-        User user = userRepository.findByEmail(newLoginObject.getEmail()).orElse(null);
-        // Reject if NOT present
+        User user = findUserByEmail(newLoginObject.getEmail());
+    
         if(user == null){
             result.rejectValue("email", "EmailLogin", "Invalid Credentials");
-        }
-        // Reject if BCrypt password match fails
-        else if(!BCrypt.checkpw(newLoginObject.getPassword(), user.getPassword())){
+        } else if(!BCrypt.checkpw(newLoginObject.getPassword(), user.getPassword())){
             result.rejectValue("password", "PasswordLogin", "Invalid Credentials");
         }
-        // Return null if result has errors
-            if(result.hasErrors()){
+            
+        if(result.hasErrors()){
                 return null;
             }
-        // Otherwise, return the user object
+        
+            logUserIn(session, user);
             return user;
     }
-}
 
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:/";
+    }
+
+    private User findUserByEmail(String email){
+        return userRepository.findByEmail(email).orElse(null);
+    }
+
+    private void logUserIn(HttpSession session, User user){
+        session.setAttribute("userId", user.getId());
+        session.setAttribute("userName", user.getUserName());
+
+
+    }
+}
 ```
-  - [RecipeService.java]():
+  - [RecipeService.java](./belt-review/src/main/java/co/tylermaxwell/beltreview/services/RecipeService.java):

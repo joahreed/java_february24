@@ -13,6 +13,7 @@
         "hiddenmethod",
         "javac",
         "jbcrypt",
+        "jdbc",
         "JSTL",
         "mindrot",
         "Omikuji",
