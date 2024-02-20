@@ -49,12 +49,25 @@ public class UserService {
     public User login(LoginUser newLoginObject, BindingResult result) {
         
         // Find user in the DB by email
+        User user = userRepository.findByEmail(newLoginObject.getEmail()).orElse(null);
         // Reject if NOT present
+        if(user == null){
+            result.rejectValue("email", "EmailLogin", "Invalid Credentials");
+        
+        }
         
         // Reject if BCrypt password match fails
+        else if(!BCrypt.checkpw(newLoginObject.getPassword(), user.getPassword())){
+            result.rejectValue("password", "PasswordLogin", "Invalid Credentials");
+        }
     
         // Return null if result has errors
+            if(result.hasErrors()){
+                return null;
+            }
+
+
         // Otherwise, return the user object
-        return null;
+            return user;
     }
 }
