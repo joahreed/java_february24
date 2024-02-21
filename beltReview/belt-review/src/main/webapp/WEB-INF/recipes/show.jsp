@@ -35,16 +35,12 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="recipe" items="${recipes}">
+            
                 <tr>
                     <td>
-                        <a href="/recipes/${recipe.id}">
-                            <c:out value="${recipe.name}"></c:out>
+                        <a href="">
+                            <c:out value="${recipe.name}"></c:out></td>
                         </a>
-                        <c:if test="${userId == recipe.user.id}">
-                            <a class="btn btn-warning" href="/recipes/${recipe.id}/edit">edit recipe</a>
-                        </c:if>
-                        </td>
                     <td>
                         <fmt:formatNumber value="${recipe.price}" type="currency" currencySymbol="$"/>
                     </td>
@@ -53,7 +49,7 @@
                     </td>
                 </tr>
 
-            </c:forEach>
+        
         </tbody>
     </table>
    </div>
