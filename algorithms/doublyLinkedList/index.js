@@ -2,7 +2,13 @@
 TODO: Create the DLLNode class and implement the DoublyLinkedList constructor
 and the empty methods below the constructor.
 */
-
+class ListNode {
+  constructor(data){
+    this.data = data;
+    this.next = null;
+    this.prev = null;
+  }
+}
 /**
  * A class to represent a doubly linked list and contain all of it's methods.
  * A doubly linked list is a singly linked list that can be traversed in both
@@ -15,6 +21,9 @@ class DoublyLinkedList {
      */
     constructor() {
       // TODO: implement the constructor.
+      this.head = null;
+      this.tail = null;
+      this.size = 0;
     }
   
     /**
@@ -33,7 +42,22 @@ class DoublyLinkedList {
      * @param {any} data The data for the new node.
      * @returns {DoublyLinkedList} This list.
      */
-    insertAtBack(data) {}
+    insertAtBack(data) {
+      const newNode = new ListNode(data)
+      if (this.isEmpty()) {
+          this.head = newNode;
+          this.tail = newNode;
+          this.size++
+          return this;
+      }
+      let oldTail = this.tail
+      this.tail = newNode
+      oldTail.next = newNode;
+      newNode.prev = oldTail
+      this.size++
+      return this;
+  }
+  
   
     // EXTRA
     /**
@@ -64,7 +88,27 @@ class DoublyLinkedList {
    * @param {any} newVal Data for the new node.
    * @returns {boolean} Indicates if the new node was added.
    */
-  insertAfter(targetVal, newVal) {}
+  insertAfter(targetVal, newVal) {
+    if(this.isEmpty()){
+      return false;
+    }
+
+    let runner = this.head
+    let newNode = new ListNode(newVal);
+    while(runner.next){
+      if (runner.data === targetVal){
+        let temp = runner.next
+        runner.next = newNode
+        newNode.next = temp
+        temp.prev = newNode
+        newNode.prev = runner
+        this.length++
+        return true;
+      }
+      runner = runner.next
+    }
+    return false;
+  }
 
   /**
    * Inserts a new node with the given newVal before the node that has the
@@ -75,7 +119,53 @@ class DoublyLinkedList {
    * @param {any} newVal Data for the new node.
    * @returns {boolean} Indicates if the new node was added.
    */
-  insertBefore(targetVal, newVal) {}
+  insertBefore(targetVal, newVal) {
+    if(this.isEmpty()){
+      return false;
+    }
+
+    let runner = this.head
+    let newNode = new ListNode(newVal);
+    while(runner.next){
+      if (runner.next.data === targetVal){
+        let temp = runner.next
+        runner.next = newNode
+        newNode.next = temp
+        temp.prev = newNode
+        newNode.prev = runner
+        this.length++
+        return true;
+      }
+      runner = runner.next
+    }
+    return false;
+  }
+
+    /**
+   * Retrieves the data from the nthLast node in this list.
+   * - Time: O(?).
+   * - Space: O(?).
+   * @param {number} nthLast Indicates the position from the back of the list.
+   * @returns {any}
+   */
+    nthToLast(nthLast) {}
+
+    /**
+     * Determines if the node's data of this list forms a palindrome.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @returns {boolean} Indicates if this list is a palindrome.
+     */
+    isPalindrome() {}
+  
+    /**
+     * Determines if a given node in this list is in the left half of this list.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {Node} node
+     * @returns {boolean}
+     */
+    isNodeInLeftHalf(node) {}
   
     /**
      * Converts this list to an array of the node's data.
@@ -108,17 +198,17 @@ class DoublyLinkedList {
   const emptyList = new DoublyLinkedList();
   
   /**************** Uncomment these test lists after insertAtBack is created. ****************/
-  // const singleNodeList = new DoublyLinkedList().insertAtBack(1);
-  // const biNodeList = new DoublyLinkedList().insertAtBack(1).insertAtBack(2);
-  // const firstThreeList = new DoublyLinkedList().insertAtBackMany([1, 2, 3]);
-  // const secondThreeList = new DoublyLinkedList().insertAtBackMany([4, 5, 6]);
-  // const unorderedList = new DoublyLinkedList().insertAtBackMany([
-  //   -5,
-  //   -10,
-  //   4,
-  //   -3,
-  //   6,
-  //   1,
-  //   -7,
-  //   -2,
-  // ]);
+  const singleNodeList = new DoublyLinkedList().insertAtBack(1);
+  const biNodeList = new DoublyLinkedList().insertAtBack(1).insertAtBack(2);
+  const firstThreeList = new DoublyLinkedList().insertAtBackMany([1, 2, 3]);
+  const secondThreeList = new DoublyLinkedList().insertAtBackMany([4, 5, 6]);
+  const unorderedList = new DoublyLinkedList().insertAtBackMany([
+    -5,
+    -10,
+    4,
+    -3,
+    6,
+    1,
+    -7,
+    -2,
+  ]);
