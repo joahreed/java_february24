@@ -148,7 +148,20 @@ class DoublyLinkedList {
    * @param {number} nthLast Indicates the position from the back of the list.
    * @returns {any}
    */
-    nthToLast(nthLast) {}
+    nthToLast(nthLast) {
+        if(this.size<=nthLast){
+          return null;
+        }
+
+        let runner = this.tail;
+        let counter = 0;
+        while(counter < nthLast){
+          runner = runner.prev;
+          counter++
+        }
+
+        return runner
+    }
 
     /**
      * Determines if the node's data of this list forms a palindrome.
@@ -156,7 +169,27 @@ class DoublyLinkedList {
      * - Space: O(?).
      * @returns {boolean} Indicates if this list is a palindrome.
      */
-    isPalindrome() {}
+    isPalindrome() {
+      if(this.isEmpty()){
+        return false;
+      }
+      let half = Math.ceil(this.size / 2);
+      console.log(half)
+      let frontRunner = this.head;
+      let backRunner = this.tail;
+
+      for(let i = 0; i < half; i++){
+        if(frontRunner.data !== backRunner.data){
+          return false
+        }
+        frontRunner = frontRunner.next;
+        backRunner = backRunner.prev;
+      }
+
+      return true;
+
+
+    }
   
     /**
      * Determines if a given node in this list is in the left half of this list.
@@ -165,7 +198,55 @@ class DoublyLinkedList {
      * @param {Node} node
      * @returns {boolean}
      */
-    isNodeInLeftHalf(node) {}
+    isNodeInLeftHalf(node) {
+      if(this.isEmpty()){
+        return false
+      }
+      let half = Math.ceil(this.size / 2);
+      let runner = this.head;
+
+      while(half > 0){
+        if(runner === node){
+          return true;
+        }
+        runner = runner.next;
+        half--;
+      }
+      return false;
+    }
+
+      /**
+   * Finds the given node in this list and removes it.
+   * - Time: O(1) constant.
+   * - Space: O(1) constant.
+   * @param {DLLNode} node A node in this list.
+   * @returns {DoublyLinkedList} This list.
+   */
+  removeNode(node) {
+
+  }
+
+  /**
+   * Removes the head node from this list.
+   * - Time: O(1) constant.
+   * - Space: O(1) constant.
+   * @param {DLLNode} node A node in this list.
+   * @returns {DoublyLinkedList} This list.
+   */
+  removeHead() {
+
+  }
+
+  /**
+   * Removes the tail node from this list.
+   * - Time: O(1) constant.
+   * - Space: O(1) constant.
+   * @param {DLLNode} node A node in this list.
+   * @returns {DoublyLinkedList} This list.
+   */
+  removeTail() {
+
+  }
   
     /**
      * Converts this list to an array of the node's data.
@@ -195,8 +276,7 @@ class DoublyLinkedList {
     }
   }
   
-  const emptyList = new DoublyLinkedList();
-  
+
   /**************** Uncomment these test lists after insertAtBack is created. ****************/
   const singleNodeList = new DoublyLinkedList().insertAtBack(1);
   const biNodeList = new DoublyLinkedList().insertAtBack(1).insertAtBack(2);
@@ -211,4 +291,10 @@ class DoublyLinkedList {
     1,
     -7,
     -2,
+    7
   ]);
+
+  const palentest = new DoublyLinkedList().insertAtBackMany([1,2,3,4,4,3,2,1]);
+  let node1 = palentest.nthToLast(2);
+  let node2 = palentest.nthToLast(6);
+
