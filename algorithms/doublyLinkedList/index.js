@@ -223,7 +223,25 @@ class DoublyLinkedList {
    * @returns {DoublyLinkedList} This list.
    */
   removeNode(node) {
+    if(this.isEmpty()){
+      return this
+    }
 
+    let runner = this.head;
+
+    while(runner.next){
+      if(runner === node){
+        let past = runner.prev;
+        let future = runner.next;
+        past.next = future;
+        future.prev = past;
+        this.size--;  
+        return this;
+      }
+      runner = runner.next;
+
+    }
+    return this;
   }
 
   /**
@@ -234,20 +252,36 @@ class DoublyLinkedList {
    * @returns {DoublyLinkedList} This list.
    */
   removeHead() {
-
+    if(this.isEmpty()){
+      return this;
+    }
+    
+    let oldHead = this.head;
+    this.head = this.head.next;
+    oldHead.next.prev = null;
+    this.size--
+    return this;
   }
-
+  
   /**
    * Removes the tail node from this list.
    * - Time: O(1) constant.
    * - Space: O(1) constant.
    * @param {DLLNode} node A node in this list.
    * @returns {DoublyLinkedList} This list.
-   */
-  removeTail() {
+  */
+ removeTail() {
+   if(this.isEmpty()){
+     return this;
+    }
+    let oldTail = this.tail;
+    this.tail = this.tail.prev;
+    oldTail.prev.next = null;
+    this.size--
+    return this;
+    
+}
 
-  }
-  
     /**
      * Converts this list to an array of the node's data.
      * - Time: O(n) linear, n = list length.
@@ -294,7 +328,7 @@ class DoublyLinkedList {
     7
   ]);
 
-  const palentest = new DoublyLinkedList().insertAtBackMany([1,2,3,4,4,3,2,1]);
+  const palentest = new DoublyLinkedList().insertAtBackMany([1,2,3,4,5,6,7,8]);
   let node1 = palentest.nthToLast(2);
   let node2 = palentest.nthToLast(6);
 
